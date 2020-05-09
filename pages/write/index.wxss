@@ -1,0 +1,78 @@
+@import "../common/lib/weui.wxss";
+@import "./assets/iconfont.wxss";
+
+.share-container {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%;
+}
+
+.ql-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: auto;
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #ECECEC;
+}
+
+.ql-active {
+  color: #22C704;
+}
+
+.iconfont {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.toolbar {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ECECEC;
+  border-left: none;
+  border-right: none;
+}
+
+/* ===============自定义================*/
+.share-title {
+  padding: 5px 10px 5px 10px;
+  font-size: 19px;
+}
+
+.share-top {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 20px 5px 20px;
+  font-size: 14px;
+}
+
+.share-divider {
+  margin-bottom: 30rpx;
+  border-top: 1rpx solid #f1ecea;
+}
+
+.share-post-gray {
+  color: #959595;
+  font-weight: 500;
+}
+
+.share-post-black {
+  color:#6495ED	;
+  font-weight: 500;
+}

@@ -1,0 +1,3 @@
+<template name="floatIcon">
+  <image class="add_icon" src="/images/tab-topic.png"></image>
+</template>

@@ -1,0 +1,41 @@
+<import src="../../templates/common-list.wxml" />
+<import src="../../templates/copyright.wxml" />
+<import src="../../templates/loading.wxml" />
+<import src="../../templates/float-icon.wxml" />
+<import src="../../templates/login-popup.wxml" />
+
+<view style="display:{{showallDisplay}}">
+
+  <!-- 文章列表 -->
+  <view class="container">
+    <!-- 列表template模板 -->
+    <template is="tempCommonList" data="{{postsList:postsList,listAdsuccess:listAdsuccess}}" />
+    <view style='display:{{isLoading?"block":"none"}}'>
+      <template is="tempLoading" />
+    </view>
+    <!-- 无更多文章提示 -->
+    <view class="loadingmore" style="display:{{floatDisplay}}">
+      <view class="no-more" hidden="{{!isLastPage}}">- 无更多文章 -</view>
+    </view>
+    <!-- 版权信息template模板 -->
+    <view class="copyright" style="display:{{floatDisplay}}">
+      <template is="tempCopyright" data="{{webSiteName:webSiteName,domain:domain}}"/>
+    </view>
+  </view>
+
+  <!-- 浮动图标 -->
+  <view bindtap='toShare'>
+    <template is="floatIcon" />
+  </view>
+</view>
+
+  <template is="login-popup" data="{{show: isLoginPopup, userInfo: userInfo}}"></template>
+
+
+<!-- 无法访问网络 -->
+<view class="showerror" style="display:{{showerror}}">
+  <image src="../../images/cry80.png" style="height:100rpx;width:100rpx"></image>
+  <view class="errortext">
+    暂时无法访问网络，下拉重试...
+  </view>
+</view>

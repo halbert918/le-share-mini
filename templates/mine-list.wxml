@@ -1,0 +1,134 @@
+<!-- 我的评论 -->
+<template name="comment">
+  <view class="selected-nav">
+    <view class="selected-container">
+      <view class="comment-content">{{comment.content}}</view>
+      <view class="target-content" data-artid="{{article != null ? article.id : '0'}}"  data-type="{{type}}" bindtap="redictDetail">
+        <view wx:if="{{article == null}}" class="target-content-delete">原内容已经删除</view>
+        <view wx:if="{{article != null}}" class="target-user">
+          <image src="{{article.authorAvatarUrl}}" class="target-gravatar-mini"></image>
+          <view class="target-user-right">
+            <view>{{article.authorNickName}}</view>    
+          </view>
+        </view>
+        <block wx:if="{{article.type == 0}}">
+          <view wx:if="{{article != null}}" class="content-view">{{article.title}}</view>
+        </block>
+        <block wx:else>
+           <view wx:if="{{article != null}}" class="content-view">{{article.content}}</view>
+        </block>
+      </view>
+      <view class="post-data" style="margin-top: 30rpx; margin-bottom: 26rpx;">
+        <image src="../../images/calendar.png"></image>
+        <text>{{comment.createTime}}</text>
+        <image src="../../images/comments.png"></image>
+        <text class="">{{comment.replyCount}}</text>
+        <image src="../../images/home-like.png"></image>
+        <text class="">{{comment.likeCount}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 我的点赞列表 -->
+<template name="like">
+  <view class="selected-nav">
+    <view class="selected-container">
+      <view>
+        <view class="target-user">
+          <image src="{{authorAvatarUrl}}" class="target-gravatar"></image>
+          <view class="target-user-right">
+            <view>
+              <view>{{authorNickName}}</view>
+              <view class="target-time-text">{{createTime}}</view>
+            </view>   
+          </view>
+        </view>
+
+        <block wx:if="{{type == 0}}">
+          <view class="content-view" data-artid="{{id}}" data-type="{{type}}" bindtap="redictDetail">{{title}}</view>
+        </block>
+        <block wx:else>
+           <view class="content-view" data-artid="{{id}}" data-type="{{type}}" bindtap="redictDetail">{{content}}</view>
+        </block>
+      </view>
+      <view class="post-data" style="margin-top: 30rpx; margin-bottom: 26rpx;">
+        <image src="../../images/calendar.png"></image>
+        <text>{{createTime}}</text>
+        <image src="../../images/comments.png"></image>
+        <text class="">{{commentCount}}</text>
+        <image src="../../images/home-like.png"></image>
+        <text class="">{{likeCount}}</text>
+        <image src="../../images/pageviews.png"></image>
+        <text class="">{{viewCount}}</text>
+      </view>
+    </view> 
+  </view>
+</template>
+
+<!-- 我的关注列表 -->
+<template name="follow">
+  <view class="selected-nav">
+    <view class="selected-container">
+      <view>
+        <view class="target-user">
+          <image src="{{followdAvatarUrl}}" class="target-gravatar"></image>
+          <view class="target-user-right">
+            <view>
+            <view>{{followdNickName}}</view>
+            <view class="target-time-text">{{createTime}}</view>
+            </view>
+            <view class="entry-data">
+              <view bindtap="onClickfollowBy" data-fid="{{id}}" data-status="{{status}}" data-followBy="{{followdUserId}}" class="btn-follow {{status == 0 ? 'btn-follow--followed' : 'btn-follow--follow'}}">{{status == 0 ? '已关注' : '关注'}}</view>
+            </view>   
+          </view>
+        </view>
+      </view>
+    </view> 
+  </view>
+</template>
+
+<!-- 我的粉丝列表 -->
+<template name="fans">
+  <view class="selected-nav">
+    <view class="selected-container">
+      <view>
+        <view class="target-user">
+          <image src="{{fansAvatarUrl}}" class="target-gravatar"></image>
+          <view class="target-user-right">
+            <view>
+              <view>{{fansNickName}}</view>
+              <view class="target-time-text">{{createTime}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view> 
+  </view>
+</template>
+
+<!-- 我的文章 -->
+<template name="article">
+  <view class="selected-nav">
+    <view class="selected-container" data-artid="{{id}}" data-type="{{type}}" bindlongpress='handleLongPress'>
+      <view>
+        <block wx:if="{{type == 0}}">
+          <view class="content-view" data-artid="{{id}}" data-type="{{type}}" bindtap="redictDetail">{{title}}</view>
+        </block>
+        <block wx:else>
+          <view class="content-view" data-artid="{{id}}" bindtap="redictDetail">{{content}}</view>
+        </block>
+      </view>
+      <view class="post-data" style="margin-top: 30rpx; margin-bottom: 26rpx;">
+        <image src="../../images/calendar.png"></image>
+        <text>{{createTime}}</text>
+        <image src="../../images/comments.png"></image>
+        <text class="">{{commentCount}}</text>
+        <image src="../../images/home-like.png"></image>
+        <text class="">{{likeCount}}</text>
+        <image src="../../images/pageviews.png"></image>
+        <text class="">{{viewCount}}</text>
+      </view>
+    </view> 
+  </view>
+</template>

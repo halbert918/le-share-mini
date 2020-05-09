@@ -1,0 +1,14 @@
+<!--templates/components/popup/popup.wxml-->
+<view class="popup-container" wx:if="{{isShowPopup}}">
+
+  <view class="popup-masking" bindtap="closeMasking"></view>
+  <view class="popup-content">
+    <view>
+      <view class="popup-title">{{title}}</view>
+      <view class="popup-close-btn" bindtap="closeMasking"></view>
+    </view>
+    <view style="height: {{height}};">
+      <slot></slot>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+/* pages/share/share.wxss */
+.share-top {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 20px 5px 20px;
+  font-size: 14px;
+}
+
+.share-divider {
+  margin-bottom: 30rpx;
+  border-top: 1rpx solid #f1ecea;
+}
+
+.share-post-gray {
+  color: #959595;
+  font-weight: 500;
+}
+
+.share-post-black {
+  color:#6495ED	;
+  font-weight: 500;
+}
+
+.share {
+  /* width: 690rpx; */
+  height: 360rpx;
+  /* border-radius: 8rpx; */
+  margin-top: 28rpx auto;
+  border-top: 2rpx solid #e5e5e5;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 15px;
+
+}
+.share >textarea {
+  width: 92%;
+  height: 360rpx;
+  padding: 26rpx 0rpx 0rpx 26rpx;
+}
+.currentWordNumber {
+  position: absolute;
+  /* bottom: 40rpx; */
+  right: 26rpx;
+  color: #888;
+}

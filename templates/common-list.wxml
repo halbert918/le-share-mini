@@ -1,0 +1,45 @@
+<template name="tempCommonList">
+
+  <view class="post-list">
+    <block wx:for="{{postsList}}" wx:key="id" >
+      <view class="list-item-ad" index="{{index}}" wx:if="{{index%item.listAdEvery ==0  && index!=0 && item.listAd =='1' && item.listAdId !=''  && listAdsuccess}}">
+        <block wx:if="{{(index/item.listAdEvery)%2==0}}">
+					<ad unit-id="{{item.videoAdId}}" ad-type="video" ad-theme="white" binderror="adbinderror"></ad>
+				</block>
+        <block wx:else>
+          <ad unit-id="{{item.listAdId}}" ad-intervals="30" binderror="adbinderror"></ad>
+        </block>
+      </view>
+      <view class="post-item" index="{{index}}" id="{{item.id}}" bindtap="redictDetail">
+        <view class="post-desc">
+          <view class="post-title">
+            <text class="{{type == 0 ? '' : 'post-data-text'}}">{{item.title == '' ? item.content : item.title}}</text>
+          </view>
+
+          <!-- 图片数量超过2张，则直接在标题下方展示 -->
+          <block wx:if="{{item.mutilImage}}">
+            <view style="">
+              <block wx:for="{{item.images}}" wx:for-item="image" wx:key="id">
+                <image src="{{image.imageUrl}}" mode="aspectFill" class="post-multi-img" style="padding-right: 10rpx;"></image>
+              </block>
+            </view>
+          </block>
+
+          <view class="post-data">
+            <text>{{item.authorNickName}}</text>
+            <image src="../../images/calendar.png"></image>
+            <text>{{item.createTime}}</text>
+            <image src="../../images/comments.png"></image>
+            <text class="">{{item.commentCount}}</text>
+            <image src="../../images/home-like.png"></image>
+            <text class="">{{item.likeCount}}</text>
+            <image src="../../images/pageviews.png"></image>
+            <text class="">{{item.viewCount}}</text>
+          </view>
+        </view>
+
+        <image wx:if="{{item.post_medium_image != ''}}" src="{{item.post_medium_image}}" mode="aspectFill" class="post-img"></image>
+      </view>
+    </block>
+  </view>
+</template>

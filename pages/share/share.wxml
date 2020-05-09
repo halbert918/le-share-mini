@@ -1,0 +1,17 @@
+<!--pages/share/share.wxml-->
+<view>
+  <view class="share-top">
+    <view bindtap="onCancle">取消</view>
+    <view bindtap="{{canPost ? 'postArticle' : ''}}" class="{{canPost ? 'share-post-black' : 'share-post-gray'}}">发布</view>
+  </view>
+  <!-- <view class="share-divider" /> -->
+  <view class="share">
+    <textarea placeholder='开始分享...' fixed="true"
+      minlength="{{min}}" maxlength="{{max}}" value="{{textValue}}" bindinput="inputs">
+      <!-- <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text> -->
+    </textarea>
+    <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+
+  </view>
+  <uploadImages id="uploadImage" bindmyevent="myEventListener" count='{{countPic}}' showUrl="{{showImgUrl}}" uploadUrl="{{uploadImgUrl}}"></uploadImages>
+</view>
